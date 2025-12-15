@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Project 1 - Frontend</title>
+</head>
+<body>
+  <h1>Frontend (Netlify)</h1>
+  <button onclick="loadUsers()">Load Users</button>
+
+  <pre id="result"></pre>
+
+  <script>
+    function loadUsers() {
+      fetch("http://thechuongnguyen.byethost7.com/api.php")
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById("result").innerText =
+            JSON.stringify(data, null, 2);
+        })
+        .catch(err => {
+          document.getElementById("result").innerText = err;
+        });
+    }
+  </script>
+</body>
+</html>
